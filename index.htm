@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang=en><title>Alex Leong</title><meta content="width=device-width,initial-scale=1"name=viewport><link href=favicon.png rel=icon type=image/png><link href=https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css rel=stylesheet><style>@import url(https://fonts.googleapis.com/css?family=Nunito);body,html{background-color:#ebebeb;font-family:Nunito,sans-serif;font-size:26px;-webkit-tap-highlight-color:rgba(255,255,255,0)}.wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:8vh}.profile{display:inline-block;width:215px;margin:auto;-webkit-transition-duration:.2s;transition-duration:.2s;cursor:pointer}.profile img{-ms-flex-item-align:center;align-self:center;border-radius:50%;height:120px;width:120px;font-size:16px}.profile:hover img{height:125px;width:125px}.profile-link{width:215px;margin:auto}.profile>p{margin-top:2vh;margin-bottom:0;cursor:pointer}#nav{list-style-type:none;margin:0;margin-top:6vh;padding:0}#nav.touched{margin-top:4vh}#nav,#nav li{-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}#nav li{cursor:pointer;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;margin:auto;margin-top:8vh}#nav.touched li{margin-top:4vh}li.active{font-weight:700;font-size:30px}.content{font-size:20px;line-height:1.5;margin:0 12vw;padding-bottom:8vh}.resume-link{margin:auto;margin-top:0;margin-bottom:4vh}hr{margin:6vh auto;max-width:75vw}a:active,a:hover,a:link,a:visited{color:#000;text-decoration:none;cursor:pointer}footer{font-size:12px;position:absolute;z-index:-1;top:5px;right:5px}@media screen and (min-width:768px){.profile img{cursor:pointer;-webkit-transition-duration:.2s;transition-duration:.2s}.profile:hover img{height:125px;width:125px}hr{max-width:600px}#nav li:hover{font-size:30px}.content{margin:0 auto;max-width:700px}.profile:hover{font-size:30px}.project-link:hover,.resume-link:hover{text-decoration:underline}footer{right:8px}}</style><div class=wrapper><a href=https://github.com/koryschneider target=_blank class=profile-link><div class=profile><img alt="profile picture"src="https://i.imgur.com/NNTfn7l.jpg"><p>Alex Leong</div></a><ul id=nav><li id=about>about<li id=projects>projects<li id=resume>resume</ul><div class=content></div></div><footer><a href=https://github.com/koryschneider/koryschneider.github.io/ target=_blank>source</a></footer><script>'use strict';
+
+const contentHTML = {
+  '#about': `\
+Student,<br>
+University of Oregon,<br>
+Art &amp; Technology +<br>
+Computer &amp; Information Technology
+
+<br><br>
+
+Interested in software development, user experience design, and the automation of
+personal technology.
+
+<br><br>
+
+As my career path unfolds, I plan to seek a balance between my passions, work,
+and the needs of society.
+
+<br><br>
+
+In my free time, I enjoy relaxing and socializing with friends, many genres of
+music, cooking and eating healthy food, bicycling on the beautiful Eugene river
+paths, typing on mechanical keyboards, and juggling.`,
+
+
+  '#projects': `\
+<h3>
+  <a class='project-link' href='https://github.com/koryschneider/wikit#readme' target='_blank'>
+    wikit &#187;
+  </a>
+</h3>
+<p>Wikipedia summaries from the command line</p>
+
+<br>
+
+<h3>
+  <a class='project-link' href='https://github.com/koryschneider/mintab#readme' target='_blank'>
+    mintab &#187;
+  </a>
+</h3>
+<p>A minimal command line startpage</p>
+
+<br>
+
+<h3>
+  <a class='project-link' href='https://github.com/koryschneider/TextDrawing#readme' target='_blank'>
+    text drawing &#187;
+  </a>
+</h3>
+<p>A program to turn text into abstract art</p>
+
+<br>
+
+<h3>
+  <a class='project-link' href='https://github.com/koryschneider/vim-trim#readme' target='_blank'>
+    vim trim &#187;
+  </a>
+</h3>
+<p>A Vim plugin to trim trailing whitespace</p>
+
+<br>
+
+<h3>
+  <a class='project-link' href='https://github.com/koryschneider/dots#readme' target='_blank'>
+    linux dotfiles &#187;
+  </a>
+</h3>
+<p>My personal configuration files</p>
+
+<br>
+
+<h3>
+  <a class='project-link' href='https://github.com/react-admin-lte/react-admin-lte#readme' target='_blank'>
+    React AdminLTE &#187;
+  </a>
+</h3>
+<p>AdminLTE components built with React</p>`,
+
+  '#resume': `\
+<a href='https://drive.google.com/file/d/0B822dBpu53BmMUhKdmJlc2JfQ2s/view?usp=sharing' target='_blank'>
+  <p class='resume-link'>Résumé (PDF) &#187;</p>
+</a>
+
+<a href='https://github.com/koryschneider' target='_blank'>
+  <p class='resume-link'>GitHub &#187;</p>
+</a>
+
+<a href='https://linkedin.com/in/koryschneider' target ='_blank'>
+  <p class='resume-link'>LinkedIn &#187;</p>
+</a>
+
+<a href='mailto:kory@koryschneider.com' target='_top'>
+  <p class='resume-link'>Email me &#187;</p>
+</a>`
+};
+
+window.onload = () => {
+  Object.keys(contentHTML).forEach(selector => {
+    setClickHandler(selector);
+  });
+};
+
+function setClickHandler(selector) {
+  document.querySelector(selector).addEventListener('click', () => {
+
+    document.querySelector('#nav').classList.add('touched');
+
+    document.querySelectorAll('#nav > li').forEach(elem => {
+      elem.classList.remove('active');
+    });
+    document.querySelector(selector).classList.add('active');
+
+    displayContent(contentHTML[selector]);
+  });
+}
+
+function displayContent(html) {
+  document.querySelector('.content').innerHTML = '<hr>' + html;
+}</script>
