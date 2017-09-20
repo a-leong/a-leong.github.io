@@ -1,3 +1,3 @@
 ## Alex Leong's Site
-Welcome. This website was developed from a template made by my friend Kory Schneider.
-You can see the original code here: https://github.com/koryschneider/koryschneider.github.io/
+This website design and code was developed by Kory Schneider.
+You can see his original code here: https://github.com/koryschneider/koryschneider.github.io/
