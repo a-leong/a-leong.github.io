@@ -16,14 +16,10 @@
 	<body>
 	<div id="container">
 		<div id="controlBar" style="text-align: center;">
-			<input type="file" id="meshInputFile" style="display: none;" onchange="loadFile(this.files[0])">
-			<input type="button" id="meshInputButton" value="Select OBJ File" onclick="document.getElementById('meshInputFile').click()">
-			<input type="file" id="texInputFile" style="display: none;" onchange="loadTexture(this.files[0], 'diffuseTexture')">
-			<input type="button" id="texInputButton" value="Select Texture File" onclick="document.getElementById('texInputFile').click()">
 			<label><input type="checkbox" id="showAxesCheckbox" onchange="toggleAxes(this.checked)" checked="true">Show Axes</label>
 			<label><input type="checkbox" id="showWireframeCheckbox" onchange="toggleWireframe(this.checked)">Show Wireframe</label>
 			<label><input type="checkbox" id="showNormalsCheckbox" onchange="toggleNormals(this.checked)">Show Normals</label>
-			<label><input type="checkbox" id="fixLightsToCameraCheckbox" onchange="toggleFixLightsToCamera(this.checked)">Fix lights to camera</label>
+			<label><input type="checkbox" id="fixLightsToCameraCheckbox" onchange="toggleFixLightsToCamera(this.checked)" checked="true" >Fix lights to camera</label>
 			<br>
 			Normal length:
 			<input type="range" id="normalLengthRange" min="0.02" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(this.value)">
@@ -163,6 +159,39 @@ void main() {
 			animate();
 			
 			function init() {
+				// Load mesh
+				var meshLoader = new THREE.OBJLoader();
+				meshLoader.load(
+					'https://alexleong7.github.io/data/meshes/teapot.obj',
+					function ( object ) {
+						object.name = 'teapot';
+						addOBJGroup(object);
+					},
+					function ( xhr ) {
+						console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+					},
+					function ( error ) {
+						console.log( 'An error happened' );
+					}
+				);
+
+				// Load texture
+				var texLoader = new THREE.TextureLoader();
+				texLoader.setCrossOrigin('anonymous');
+				texLoader.load(
+					'https://alexleong7.github.io/data/textures/Flower.png',
+					function ( texture ) {
+						meshMaterial.uniforms['diffuseTexture'] = { type: 't', value: texture };
+           				meshMaterial.needsUpdate = true;
+					},
+					function ( xhr ) {
+						console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+					},
+					function ( error ) {
+						console.log( 'An error happened' );
+					}
+				);
+
 				defaultTextureTarget = 'diffuseTexture';
 				meshMaterial.uniforms.diffuseTexture = { type: 't', value: null };
 			

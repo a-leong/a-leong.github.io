@@ -184,15 +184,21 @@ function render() {
     renderer.render(scene, camera);
 }
 
-function loadFile(file) {
-    var reader = new FileReader();
-    reader.addEventListener('load', function(event) {
-        var contents = event.target.result;
-        var object = new THREE.OBJLoader().parse(contents);
-        object.name = file.name;
-        addOBJGroup(object);
-    });
-    reader.readAsText(file);
+function loadFile() {
+    var meshLoader = new THREE.OBJLoader();
+    meshLoader.load(
+        'https://alexleong7.github.io/data/meshes/teapot.obj',
+        function ( object ) {
+            object.name = 'teapot';
+            addOBJGroup(object);
+        },
+        function ( xhr ) {
+            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        },
+        function ( error ) {
+            console.log( 'An error happened' );
+        }
+    );
 }
 
 function loadTexture(file, uniformName) {
