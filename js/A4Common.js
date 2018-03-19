@@ -189,8 +189,6 @@ function render() {
 function loadFile() {
     var meshLoader = new THREE.OBJLoader();
     var curObjectID = Math.floor(Math.random() * 3);
-    console.log("hey");
-    console.log(curObjectID);
     var object = objects[curObjectID];
     meshLoader.load(
         ('https://alexleong7.github.io/data/meshes/' + object + '.obj'),
