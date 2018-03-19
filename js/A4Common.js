@@ -3,6 +3,7 @@ if (!Detector.webgl) {
 }
 
 var camera, controls, scene, renderer;
+var objects = ["teapot","sphere_highres","torus_highres"];
 var normalLines = null, group = null, backGroup = null, wireframeGroup = null;
 var meshMaterial, backMaterial, wireframeMaterial, normalLineMaterial;
 var lightPositions = [];
@@ -122,6 +123,7 @@ function commonInit() {
     }, false);
 
     window.addEventListener('resize', onWindowResize, false);
+    curObjectID = 0;
 }
 
 function make_normals(object, scale) {
@@ -186,8 +188,12 @@ function render() {
 
 function loadFile() {
     var meshLoader = new THREE.OBJLoader();
+    var curObjectID = Math.floor(Math.random() * 3);
+    console.log("hey");
+    console.log(curObjectID);
+    var object = objects[curObjectID];
     meshLoader.load(
-        'https://alexleong7.github.io/data/meshes/teapot.obj',
+        ('https://alexleong7.github.io/data/meshes/' + object + '.obj'),
         function ( object ) {
             object.name = 'teapot';
             addOBJGroup(object);

@@ -16,7 +16,7 @@
     <body>
     <div id="container">
         <div id="controlBar" style="text-align: center;">
-            <input type="checkbox" id="meshInputFile" style="display: none;" onchange="loadFile()" checked="true">
+            <input type="input" id="meshInputFile" style="display: none;" onclick="loadFile()">
             <input type="button" id="meshInputButton" value="Display Object" onclick="document.getElementById('meshInputFile').click()" >
             <label><input type="checkbox" id="showAxesCheckbox" onchange="toggleAxes(this.checked)" checked="true">Show Axes</label>
             <label><input type="checkbox" id="showWireframeCheckbox" onchange="toggleWireframe(this.checked)">Show Wireframe</label>
