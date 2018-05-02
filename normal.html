@@ -24,9 +24,9 @@
             Normal length:
             <input type="range" id="normalLengthRange" min="0.02" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(this.value)">
             Exposure:
-            <input type="range" id="exposureRange" min="10.0" max="18.0" step="0.5" value="16.0" oninput="setUniformLog('exposure', this.value)">
+            <input type="range" id="exposureRange" min="10.0" max="18.0" step="0.5" value="15.0" oninput="setUniformLog('exposure', this.value)">
             Roughness:
-            <input type="range" id="roughnessRange" min="-16.0" max="0.0" step="0.5" value="-4.0" oninput="setUniformLog('roughness', this.value)">
+            <input type="range" id="roughnessRange" min="-16.0" max="0.0" step="0.5" value="-8.0" oninput="setUniformLog('roughness', this.value)">
             Bumpiness:
             <input type="range" id="bumpinessRange" min="-4.0" max="4.0" step="0.25" value="2.0" oninput="setUniformLog('bumpiness', this.value)">
             <br>
@@ -109,7 +109,6 @@ varying vec3 Ntangent2; // In object space.
 vec3 to_sRGB(vec3 c) { return pow(c, vec3(1.0/2.2)); }
 vec3 from_sRGB(vec3 c) { return pow(c, vec3(2.2)); }
 
-float PI = 3.1415926535897932384626433832795;
 
 void main() {
     // get normal map
@@ -126,45 +125,19 @@ void main() {
     
     vec3 finalColor = vec3(0.0, 0.0, 0.0);
 
-    float m = roughness;
-
     for (int i = 0; i < NUM_LIGHTS; i++) {
         float r = length(lightPositions[i] - vPosition.xyz);
         vec3 L = normalize(lightPositions[i] - vPosition.xyz); 
         vec3 H = normalize(L + V);
 
-        // Dot products
-        float NH = max(dot(N,H),0.0);
-        float VH = max(dot(V,H),0.0);
-        float NV = max(dot(N,V),0.0);
-        float NL = max(dot(N,L),0.0);
+        // calculate diffuse term
+        vec3 Idiff = from_sRGB(texture2D(diffuseTexture, vUv).rgb) * max(dot(N, L), 0.0);
 
-        // Fresnel Term
-        float F_0 = 0.04;
-        float fresnel = F_0 + ((1.0 - F_0) * pow(1.0 - VH,5.0));
+        // calculate specular term
+        vec3 Ispec = vec3(1.0) * pow(max(dot(N, H), 0.0), 1.0 / roughness);
 
-        // Mircofacet Term
-        float MFExp = (pow(NH,2.0) - 1.0) / (pow(m,2.0) * pow(NH,2.0));
-        float microFacet = (1.0 / (pow(m,2.0) * pow(NH,4.0))) * exp(MFExp);
-
-        // Geometric Attenuation
-        float geoAtten1 = (2.0 * NH * NV) / VH;
-        float geoAtten2 = (2.0 * NH * NL) / VH;
-        float G = min(min(geoAtten1,geoAtten2),1.0);
-
-        // Specular Coefficient
-        vec3 k_s = vec3(1.0);
-
-        // Diffuse BRDF
-        vec3 k_d = from_sRGB(texture2D(diffuseTexture, vUv).rgb) / PI;
-
-        // Cook-Torrance Terms Synthesized
-        vec3 cookT = k_s * vec3(fresnel / PI) * vec3((microFacet * G) / (NV * NL)) + k_d;
-
-
-        finalColor += (lightColors[i] / (r*r)) * NL * cookT;
+        finalColor += lightColors[i] * (Idiff + Ispec) / (r*r);
     }
-
     gl_FragColor = vec4(to_sRGB(finalColor * exposure), 1.0);
 }
         </script>
