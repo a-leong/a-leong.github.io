@@ -24,11 +24,11 @@
             Normal length:
             <input type="range" id="normalLengthRange" min="0.02" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(this.value)">
             Exposure:
-            <input type="range" id="exposureRange" min="10.0" max="18.0" step="0.5" value="14.0" oninput="setUniformLog('exposure', this.value)">
+            <input type="range" id="exposureRange" min="10.0" max="18.0" step="0.5" value="16.0" oninput="setUniformLog('exposure', this.value)">
             Roughness:
-            <input type="range" id="roughnessRange" min="-16.0" max="0.0" step="0.5" value="-8.0" oninput="setUniformLog('roughness', this.value)">
+            <input type="range" id="roughnessRange" min="-16.0" max="0.0" step="0.5" value="-4.0" oninput="setUniformLog('roughness', this.value)">
             Bumpiness:
-            <input type="range" id="bumpinessRange" min="-4.0" max="4.0" step="0.25" value="0.0" oninput="setUniformLog('bumpiness', this.value)">
+            <input type="range" id="bumpinessRange" min="-4.0" max="4.0" step="0.25" value="2.0" oninput="setUniformLog('bumpiness', this.value)">
             <br>
             Left click + drag to orbit. Right click + drag to pan. Scroll to zoom.
         </div>
@@ -182,7 +182,7 @@ void main() {
                 meshMaterial.uniforms.diffuseTexture = { type: 't', value: null };
                 meshMaterial.uniforms.normalMap = { type: 't', value: null };
 
-                                // Load mesh
+                // Load mesh
                 var meshLoader = new THREE.OBJLoader();
                 meshLoader.load(
                     'https://alexleong7.github.io/data/meshes/sphere_highres.obj',
