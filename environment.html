@@ -17,7 +17,7 @@
     <div id="container">
         <div id="controlBar" style="text-align: center;">
             <input type="input" id="meshInputFile" style="display: none;" onclick="loadFile()">
-            <input type="button" id="meshInputButton" value="Display Object" onclick="document.getElementById('meshInputFile').click()" >
+            <input type="button" id="meshInputButton" value="Display New Object" onclick="document.getElementById('meshInputFile').click()" >
             <label><input type="checkbox" id="showAxesCheckbox" onchange="toggleAxes(this.checked)" checked="true">Show Axes</label>
             <label><input type="checkbox" id="showWireframeCheckbox" onchange="toggleWireframe(this.checked)">Show Wireframe</label>
             <label><input type="checkbox" id="showNormalsCheckbox" onchange="toggleNormals(this.checked)">Show Normals</label>
@@ -95,8 +95,8 @@ vec3 from_sRGB(vec3 c) { return pow(c, vec3(2.2)); }
 void main() {
 
     vec3 reflTexCoord = reflect(vPosition.xyz, vNormal);
-    vec3 environmentColor = from_sRGB(textureCube(environmentMap, reflTexCoord).rgb);
-    gl_FragColor = vec4(to_sRGB(environmentColor * exposure),1.0);
+    vec3 environmentColor = textureCube(environmentMap, reflTexCoord).rgb;
+    gl_FragColor = vec4((environmentColor * exposure),1.0);
 }
         </script>
 <!-----------------------------------------------------------------------------
