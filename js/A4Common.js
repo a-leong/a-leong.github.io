@@ -3,7 +3,7 @@ if (!Detector.webgl) {
 }
 
 var camera, controls, scene, renderer;
-var objects = ["teapot","sphere_highres","torus_highres"];
+var objects = ["teapot"];
 var normalLines = null, group = null, backGroup = null, wireframeGroup = null;
 var meshMaterial, backMaterial, wireframeMaterial, normalLineMaterial;
 var lightPositions = [];
@@ -188,8 +188,8 @@ function render() {
 
 function loadFile() {
     var meshLoader = new THREE.OBJLoader();
-    var curObjectID = Math.floor(Math.random() * 3);
-    var object = objects[curObjectID];
+    //var curObjectID = Math.floor(Math.random() * 3);
+    var object = objects[0];
     meshLoader.load(
         ('https://alexleong7.github.io/data/meshes/' + object + '.obj'),
         function ( object ) {
