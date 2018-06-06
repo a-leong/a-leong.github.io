@@ -7,7 +7,7 @@
         <style>
             body {
                 font-family: Monospace;
-                background-color: #707080;
+                background-color: #FDF7FF;
                 margin: 0px;
                 overflow: hidden;
             }
@@ -16,22 +16,27 @@
     <body>
     <div id="container">
         <div id="controlBar" style="text-align: center;">
+
             <input type="input" id="meshInputFile" style="display: none;" onclick="loadFile()">
-            <input type="button" id="meshInputButton" value="Display New Object" onclick="document.getElementById('meshInputFile').click()" >
-            <label><input type="checkbox" id="showAxesCheckbox" onchange="toggleAxes(this.checked)" checked="true">Show Axes</label>
-            <label><input type="checkbox" id="showWireframeCheckbox" onchange="toggleWireframe(this.checked)">Show Wireframe</label>
-            <label><input type="checkbox" id="showNormalsCheckbox" onchange="toggleNormals(this.checked)">Show Normals</label>
-            <label><input type="checkbox" id="fixLightsToCameraCheckbox" onchange="toggleFixLightsToCamera(this.checked)">Fix lights to camera</label>
-            <br>
-            Normal length:
-            <input type="range" id="normalLengthRange" min="0.02" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(this.value)">
-            Exposure:
-            <input type="range" id="exposureRange" min="-4.0" max="4.0" step="0.5" value="0.0" oninput="setUniformLog('exposure', this.value)">
-            <br>
-            Left click + drag to orbit. Right click + drag to pan. Scroll to zoom.
+            <label><input type="checkbox" id="showAxesCheckbox" style="display: none;" onchange="toggleAxes(this.checked)" checked="false"></label>
+            <label><input type="checkbox" id="showWireframeCheckbox" style="display: none;" onchange="toggleWireframe(this.checked)" checked="false"></label>
+            <label><input type="checkbox" id="showNormalsCheckbox" style="display: none;" onchange="toggleNormals(this.checked)" checked="false"></label>
+            <label><input type="checkbox" id="fixLightsToCameraCheckbox" style="display: none;" onchange="toggleFixLightsToCamera(this.checked)" checked="false"></label>
+            
+
+            <input type="range" id="normalLengthRange" min="0.02" style="display: none;" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(0.3)">
+            
+            <input type="range" style="display: none;" id="exposureRange" min="-4.0" max="4.0" step="0.5" value="0.0" oninput="setUniformLog('exposure', this.value)">
+            
+
+            <input type="button" id="meshInputButton" value="Render Interactive Teapot" 
+                onclick="
+                document.getElementById('meshInputFile').click();
+                document.getElementById('meshInputButton').style = 'display: none;'
+                " >
+            <script>"loadFile();"</script>
         </div>
     </div>
-
         <script src="js/three.min.js"></script>
         <script src="js/BufferGeometryUtils.js"></script>
         <script src="js/Detector.js"></script>

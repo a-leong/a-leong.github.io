@@ -66,11 +66,13 @@ function commonInit() {
 
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 50);
     camera.position.z = 5;
+    camera.position.y = 5;
+    camera.position.x = 5;
 
     scene = new THREE.Scene();
 
     renderer = new THREE.WebGLRenderer({ antialias: true }); // WebGLRenderer CanvasRenderer
-    renderer.setClearColor(0x707080);
+    renderer.setClearColor(0xFDF7FF);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
@@ -241,7 +243,7 @@ function toggleAxes(show) {
 
 function toggleWireframe(show) {
     if (show) {
-        wireframeMaterial.opacity = 1.0;
+        wireframeMaterial.opacity = 0.0;
     } else {
         wireframeMaterial.opacity = 0.0;
     }
