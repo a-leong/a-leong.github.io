@@ -235,7 +235,7 @@ function loadEnvironmentMap(basePath) {
 
 function toggleAxes(show) {
     if (show) {
-        scene.add(axesGroup);
+        scene.remove(axesGroup);
     } else {
         scene.remove(axesGroup);
     }
@@ -251,7 +251,7 @@ function toggleWireframe(show) {
 
 function toggleNormals(show) {
     if (show) {
-        normalLineMaterial.opacity = 1.0;
+        normalLineMaterial.opacity = 0.0;
     } else {
         normalLineMaterial.opacity = 0.0;
     }
