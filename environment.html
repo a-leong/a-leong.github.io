@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Environment mapping</title>
+        <title>Teapot Cubemap</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <style>
@@ -15,7 +15,7 @@
     </head>
     <body>
     <div id="container">
-        <div id="controlBar" style="text-align: center;">
+        <div id="controlBar" style="position: fixed; text-align: center; top: 50%; left: 50%;">
 
             <input type="input" id="meshInputFile" style="display: none;" onclick="loadFile()">
             <label><input type="checkbox" id="showAxesCheckbox" style="display: none;" onchange="toggleAxes(this.checked)" checked="false"></label>
@@ -32,7 +32,7 @@
             <input type="button" id="meshInputButton" value="Render Interactive Teapot" 
                 onclick="
                 document.getElementById('meshInputFile').click();
-                document.getElementById('meshInputButton').style = 'display: none;'
+                document.getElementById('controlBar').style = 'display: none;'
                 " >
             <script>"loadFile();"</script>
         </div>
