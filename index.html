@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang=en>
+<html>
+    <head>
+    	<title>Alex Leong</title>
+    	<link rel="stylesheet" href="styles/all.css"/>
+    	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+     	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+     	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+     	<link rel="manifest" href="/site.webmanifest">
+     	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7b965f">
+     	<meta name="msapplication-TileColor" content="#d4e1f2">
+     	<meta name="theme-color" content="#282F2D">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <div class="parallax">
+            <div class="parallax__layer parallax__layer__0">
+				<img src="https://i.imgur.com/8rArER0.png"
+				style=" border:11px solid #282F2D;
+  						height: 300px;
+  						width: 300px;">
+			</div>
+            <div class="parallax__layer parallax__layer__1">
+                <img src="images/a_layer_1.png" />
+            </div>
+            <div class="parallax__layer parallax__layer__2">
+                <img src="images/a_layer_2.png" />
+            </div>
+            <div class="parallax__layer parallax__layer__3">
+                <img src="images/a_layer_3.png" />
+            </div>
+            <div class="parallax__layer parallax__layer__4">
+                <img src="images/a_layer_4.png" />
+            </div>
+            <div class="parallax__layer parallax__layer__5">
+                <img src="images/a_layer_5.png" />
+            </div>
+            <div class="parallax__layer parallax__layer__6">
+                <img src="images/a_layer_6.png" />
+            </div>
+	        <div class="parallax__cover">
+	        	<div class=wrapper>
+					<ul id=nav>
+						<li id=about>about
+						<li id=projects>projects
+						<li id=resume>contact
+					</ul>
+					<div class=content></div>
+				</div>
+				<script>'use strict';
+					const contentHTML = {
+						'#about': `\
+						Software engineer, mobile developer and aspiring data scientist seeking employment in Portland, OR for Summer 2019 and beyond.
+
+						<br>
+
+						BS in Computer Science | Cornell University College of Engineering
+						<br><br>
+						`,
+
+
+						'#projects': `\
+
+						<h2>software design</h2>
+						<h3>cornell projects</h3>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/Othello#readme' target='_blank'>
+						  Othello &#187;
+						</a>
+						</h5>
+
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/Settlers-of-Catan#readme' target='_blank'>
+						  Settlers of Catan &#187;
+						</a>
+						</h5>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/DropBin#readme' target='_blank'>
+						  DropBin &#187;
+						</a>
+						</h5>
+						<h5>
+						<a class='project-link' href='https://a-Leong.github.io/environment' target='_blank'>
+						  Teapot Cubemap Shader &#187;
+						</a>
+						</h5>
+						<h3>personal iOS projects</h3>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/Hatchchat#readme' target='_blank'>
+						  Hatchchat chatroom app &#187;
+						</a>
+						</h5>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/calcu#readme' target='_blank'>
+						  calcU calculator app &#187;
+						</a>
+						</h5>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/chkchk#readme' target='_blank'>
+						  ChkChk todo app &#187;
+						</a>
+						</h5>
+
+						<br>
+
+						<h2>data analytics</h2>
+						<h5>
+						<a class='project-link' href='https://drive.google.com/file/d/1y821KSjm8A1WUJIRvu7fKuR-0YNSQ9t2/view?usp=sharing' target='_blank'>
+						  Weather on Energy Usage &#187;
+						</a>
+						</h5>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/Omega-Centauri-HR-Diagram#readme' target='_blank'>
+						  Hertzsprung-Russell Diagram of Omega Centauri &#187;
+						</a>
+						</h5>
+
+						<br>
+
+						<h2>hardware design</h2>
+						<h5>
+						<a class='project-link' href='https://github.com/a-Leong/MIPS32#readme' target='_blank'>
+						  32-Bit MIPS CPU &#187;
+						</a>
+						</h5>
+
+						<br>
+						`,
+
+						'#resume': `\
+						<a href='https://drive.google.com/file/d/16bkXpchOJi31h_W_tmh95OBpzUOMxgWX/view?usp=sharing' target='_blank'>
+						<p class='resume-link'>Resume &#187;</p>
+						</a>
+
+						<a href='https://github.com/a-Leong' target='_blank'>
+						<p class='resume-link'>GitHub &#187;</p>
+						</a>
+
+						<a href='https://www.linkedin.com/in/alex-leong/' target ='_blank'>
+						<p class='resume-link'>LinkedIn &#187;</p>
+						</a>`
+					};
+
+					window.onload = () => {
+						Object.keys(contentHTML).forEach(selector => {
+					  		setClickHandler(selector);
+						});
+					};
+
+					function setClickHandler(selector) {
+						document.querySelector(selector).addEventListener('click', () => {
+							document.querySelector('#nav').classList.add('touched');
+							document.querySelectorAll('#nav > li').forEach(elem => {
+					    		elem.classList.remove('active');
+					  		});
+					  		document.querySelector(selector).classList.add('active');
+
+					  		displayContent(contentHTML[selector]);
+						});
+					}
+
+					function displayContent(html) {
+						document.querySelector('.content').innerHTML = '<hr>' + html;
+					}
+				</script>
+			</div>
+		</div>
+	</body>
+</html>

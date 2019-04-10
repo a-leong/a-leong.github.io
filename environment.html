@@ -121,23 +121,7 @@ void main() {
             animate();
             
             function init() {
-                // Load mesh
-                /*var meshLoader = new THREE.OBJLoader();
-                meshLoader.load(
-                    'https://alexleong7.github.io/data/meshes/teapot.obj',
-                    function ( object ) {
-                        object.name = 'teapot';
-                        addOBJGroup(object);
-                    },
-                    function ( xhr ) {
-                        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-                    },
-                    function ( error ) {
-                        console.log( 'An error happened' );
-                    }
-                );*/
-                //loadFile();
-                loadEnvironmentMap('https://alexleong7.github.io/data/textures/LancellottiChapel/');
+                loadEnvironmentMap('https://a-leong.github.io/data/textures/LancellottiChapel/');
             
                 addLight(new THREE.Vector3(50, 50, 100), new THREE.Vector3(0.8, 0.8, 0.8));
                 addLight(new THREE.Vector3(-50, -50, -50), new THREE.Vector3(0.5, 0.5, 0.6));
