@@ -169,7 +169,6 @@ footer{
   z-index: 0;
 }
 .parallax__cover {
-  overflow-x: hidden;
   background: #FEFFFF;
   display: block;
   position: absolute;
