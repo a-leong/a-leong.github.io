@@ -72,7 +72,7 @@ function commonInit() {
     scene = new THREE.Scene();
 
     renderer = new THREE.WebGLRenderer({ antialias: true }); // WebGLRenderer CanvasRenderer
-    renderer.setClearColor(0xFDF7FF);
+    renderer.setClearColor(0xFEFFFF);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
