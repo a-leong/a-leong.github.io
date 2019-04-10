@@ -168,12 +168,16 @@
 					  		});
 					  		document.querySelector(selector).classList.add('active');
 
-					  		displayContent(contentHTML[selector]);
+					  		displayContent(contentHTML[selector], selector == '#resume');
 						});
 					}
 
-					function displayContent(html) {
-						document.querySelector('.content').innerHTML = '<hr>' + html + surprise;
+					function displayContent(html, bool) {
+						if (bool) {
+							document.querySelector('.content').innerHTML = '<hr>' + html + surprise;
+						} else {
+							document.querySelector('.content').innerHTML = '<hr>' + html;
+						}
 					}
 				</script>
 			</div>
