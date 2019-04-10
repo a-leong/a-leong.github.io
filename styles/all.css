@@ -175,12 +175,12 @@ footer{
   top: 100%;
   left: 0;
   right: 0;
-  height: 750px;
+  height: 800px;
   z-index: 0;
 }
 
 .parallax__layer__0 {
-  transform: translateZ(-1000px) translateY(-1000px) translateX(6078px);
+  transform: translateZ(-1000px) translateY(-1500px) translateX(6078px);
 }
 
 .parallax__layer__1 {
