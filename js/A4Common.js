@@ -193,7 +193,7 @@ function loadFile() {
     //var curObjectID = Math.floor(Math.random() * 3);
     var object = objects[0];
     meshLoader.load(
-        ('https://alexleong7.github.io/data/meshes/' + object + '.obj'),
+        ('https://a-leong.github.io/data/meshes/' + object + '.obj'),
         function ( object ) {
             object.name = 'teapot';
             addOBJGroup(object);
