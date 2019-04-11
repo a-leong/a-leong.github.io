@@ -73,7 +73,7 @@ li.active{
   font-size:30px
 }
 
-.video_container {
+.media_container {
     flex-direction: row;
     display: inline-flex;
     padding-bottom: 5%;
@@ -88,7 +88,7 @@ li.active{
   display: table; 
 }
 
-.demo_video {
+.demo_media {
   opacity: 0;
   display: block;
   width: auto;
