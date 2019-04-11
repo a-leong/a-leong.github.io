@@ -22,24 +22,24 @@
     <body>
         <div class="parallax" id="parallax">
             <div class="parallax__layer parallax__layer__1">
-                <img src="images/a_layer_1.png" />
+                <img src="images/a_layer_1.png"draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__2">
-                <img src="images/a_layer_2.png" />
+                <img src="images/a_layer_2.png"draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__3">
-                <img src="images/a_layer_3.png" />
+                <img src="images/a_layer_3.png"draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__4">
-                <img src="images/a_layer_4.png" />
+                <img src="images/a_layer_4.png"draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__5">
-                <img src="images/a_layer_5.png" />
+                <img src="images/a_layer_5.png"draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__6">
-                <img src="images/a_layer_6.png" />
+                <img src="images/a_layer_6.png"draggable="false" />
             </div>
-	        <div class="parallax__cover" id="parallax__cover">
+	        <div class="parallax__cover"draggable="false" id="parallax__cover">
 	        	<div class=wrapper>
 					<ul id=nav>
 						<li id=about>about
@@ -53,90 +53,129 @@
 					const contentHTML = {
 						'#about': `\
 						<div style="width:500px;">
-							Software engineer, mobile developer and aspiring data scientist seeking employment in Portland, OR for Summer 2019 and beyond.
+							Computer pianist seeking employment in Portland, OR for Summer 2019 and beyond.
 							<br><br>
 							BS in Computer Science <br> Cornell University College of Engineering
 						</div>
 						`,
 
-
 						'#projects': `\
+						<h2>hardware design</h2>
+						<div class="video_container">
+							<div class="container">
+	  							<video class='demo_video' loop muted playsinline src="videos/mipsDemo.mp4"></video>
+	  							<a href='https://github.com/a-Leong/MIPS32#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>32-Bit MIPS CPU</div>
+			  						</div>
+		  						</a>
+							</div>
+						</div>
+
+						<br>
 
 						<h2>software design</h2>
-						<h3>cornell projects</h3>
-						<h5>
-						<a class='project-link' href='https://github.com/a-Leong/Othello#readme' target='_blank'>
-						  Othello &#187;
-						</a>
-						</h5>
 
-						<h5>
-						<a class='project-link' href='https://github.com/a-Leong/Settlers-of-Catan#readme' target='_blank'>
-						  Settlers of Catan &#187;
-						</a>
-						</h5>
+						<h3>text-based gaming</h3>
+						<div class="video_container">
+							<div class="container">
+	  							<video class='demo_video' loop muted playsinline src="videos/othelloDemo.mp4"></video>
+	  							<a href='https://github.com/a-Leong/othello#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Othello</div>
+			  						</div>
+		  						</a>
+							</div>
+							<div class="container">
+	  							<video class='demo_video' loop muted playsinline src="videos/catanDemo.mp4"></video>
+	  							<a href='https://github.com/a-Leong/SettlersOfCatan#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Catan</div>
+			  						</div>
+		  						</a>
+							</div>
+						</div>
 
-						<h3>personal iOS projects</h3>
+						<h3>professional iOS development</h3>
+						<div class="video_container">
+							<div class="container">
+	  							<video class='demo_video' loop muted playsinline src="videos/forumDemo.mp4"></video>
+	  							<a href='https://github.com/htrg' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>User Forum</div>
+			  						</div>
+		  						</a>
+							</div>
+							<div class="container">
+	  							<video class='demo_video' loop muted playsinline src="videos/remindDemo.mp4"></video>
+	  							<a href='https://github.com/htrg' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Reminders</div>
+			  						</div>
+		  						</a>
+							</div>
+						</div>
+
+						<h3>completed iOS tutorials</h3>
 						<div class="video_container">
 							<div class="container">
 	  							<video class='demo_video' loop muted playsinline src="videos/chatDemo.mp4"></video>
-	  							<div class="overlay">
-		    						<a class='project-link' href='https://github.com/a-Leong/Hatchchat#readme' target='_blank'>
-						  				Hatchchat
-									</a>
-		  						</div>
+	  							<a href='https://github.com/a-Leong/hatchchat#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Hatchchat</div>
+			  						</div>
+		  						</a>
 							</div>
 							<div class="container">
 	  							<video class='demo_video' loop muted playsinline src="videos/calcDemo.mp4"></video>
-	  							<div class="overlay">
-		    						<a class='project-link' href='https://github.com/a-Leong/calcu#readme' target='_blank'>
-						  				calcU
-									</a>
-		  						</div>
+	  							<a href='https://github.com/a-Leong/calcu#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>calcU</div>
+			  						</div>
+		  						</a>
 							</div>
 						</div>
 						<br>
 						<div class="video_container">
 							<div class="container">
 	  							<video class='demo_video' loop muted playsinline src="videos/bitcoinDemo.mp4"></video>
-	  							<div class="overlay">
-		    						<a class='project-link' href='https://github.com/a-Leong/BitcoinTicker#readme' target='_blank'>
-						  				BitcoinTicker
-									</a>
-		  						</div>
+	  							<a href='https://github.com/a-Leong/bitcointicker#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Bitcoin</div>
+			  						</div>
+		  						</a>
 							</div>
 							<div class="container">
 	  							<video class='demo_video' loop muted playsinline src="videos/weatherDemo.mp4"></video>
-	  							<div class="overlay">
-		    						<a class='project-link' href='https://github.com/a-Leong/Clima#readme' target='_blank'>
-						  				Weather
-									</a>
-		  						</div>
+	  							<a href='https://github.com/a-Leong/clima#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Weather</div>
+			  						</div>
+		  						</a>
 							</div>
 						</div>
 
 						<br>
 
 						<h2>data analytics</h2>
-						<h5>
-						<a class='project-link' href='https://drive.google.com/file/d/1y821KSjm8A1WUJIRvu7fKuR-0YNSQ9t2/view?usp=sharing' target='_blank'>
-						  Weather on Energy Usage &#187;
-						</a>
-						</h5>
-						<h5>
-						<a class='project-link' href='https://github.com/a-Leong/Omega-Centauri-HR-Diagram#readme' target='_blank'>
-						  Hertzsprung-Russell Diagram of Omega Centauri &#187;
-						</a>
-						</h5>
-
-						<br>
-
-						<h2>hardware design</h2>
-						<h5>
-						<a class='project-link' href='https://github.com/a-Leong/MIPS32#readme' target='_blank'>
-						  32-Bit MIPS CPU &#187;
-						</a>
-						</h5>
+						<div class="video_container">
+							<div class="container">
+	  							<img class='demo_video' src="images/energyDemo.png"></img>
+	  							<a href='https://drive.google.com/file/d/1y821KSjm8A1WUJIRvu7fKuR-0YNSQ9t2/view?usp=sharing' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>Weather and Energy</div>
+			  						</div>
+		  						</a>
+							</div>
+							<div class="container">
+	  							<img class='demo_video' src="images/hrDemo.png"></img>
+	  							<a href='https://github.com/a-Leong/Omega-Centauri-HR-Diagram#readme' target="_blank">
+		  							<div class="overlay">
+			    						<div class='label'>HR Diagram Generator</div>
+			  						</div>
+		  						</a>
+							</div>
+						</div>
 						`,
 
 						'#resume': `\
@@ -154,9 +193,13 @@
 					};
 
 					const surprise = 
-					`<a href="https://a-Leong.github.io/environment">
-						<img src="images/surprise.png" style="width:20px; margin-top:50px;"/>
-					</a>`
+					`
+					<div class='surprise_container'>
+						<a class='surprise' href="https://a-Leong.github.io/environment">
+							<img src="images/surprise.png" style="width:30px"/>
+						</a>
+					</div>
+					`
 
 					window.onload = () => {
 						Object.keys(contentHTML).forEach(selector => {
@@ -188,8 +231,10 @@
 						            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
 						            var bottom_of_window = $(window).scrollTop() + $(window).height();
 						            if (bottom_of_window > bottom_of_object) {
-						                $(this).animate({'opacity': '1'}, 0);
-						                this.play();
+						                $(this).animate({'opacity': '1'}, 500);
+						                if($(this).is("video")) {
+						                	this.play();
+										}
 						             }
 						         });
     						});
