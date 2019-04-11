@@ -12,8 +12,7 @@ body,html{
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+            user-select: none; /* Chrome and Opera */
 }
 
 .wrapper{
@@ -131,8 +130,8 @@ li.active{
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   margin-top: 400px;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 
 .surprise_container:hover .surprise{
@@ -218,6 +217,7 @@ a:active,a:hover,a:link,a:visited{
   bottom: 0;
   z-index: 0;
 }
+
 .parallax__cover {
   background: #FEFFFF;
   display: block;
@@ -227,16 +227,6 @@ a:active,a:hover,a:link,a:visited{
   right: 0;
   height: 800px;
   z-index: 0;
-}
-
-.parallax__layer__0 {
-  position: absolute;
-  left: 50%;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin-left: 1500px;
-  transform: translateZ(-150px) scale(.1);
 }
 
 .parallax__layer__1 {
