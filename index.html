@@ -273,22 +273,25 @@
                         if (projects) {
                             document.querySelector('.content').innerHTML = '<hr>' + html;
                             document.getElementById('parallax__cover').style.height = '2000px';
-                            $('div#parallax').scroll(function () {
-                                $('.demo_media').each(function () {
-                                    var bottom_of_object = $(this).offset().top + ($(this).outerHeight() / 3);
-                                    var bottom_of_window = $(window).scrollTop() + $(window).height();
-                                    if (bottom_of_window > bottom_of_object) {
-                                        $(this).animate({'opacity': '1'}, 500);
-                                        if ($(this).is("video")) {
-                                            this.play();
-                                        }
-                                     }
-                                 });
-                            });
+                            fadeInVisibleDemos();
+                            $('div#parallax').scroll(fadeInVisibleDemos);
                         } else {
                             document.querySelector('.content').innerHTML = '<hr>' + html;
                             document.getElementById('parallax__cover').style.height = '800px';
                         }
+                    }
+
+                    function fadeInVisibleDemos() {
+                    	$('.demo_media').each(function () {
+                        	var bottom_of_object = $(this).offset().top + ($(this).outerHeight() / 3);
+                            var bottom_of_window = $(window).scrollTop() + $(window).height();
+                            if (bottom_of_window > bottom_of_object) {
+                                $(this).animate({'opacity': '1'}, 500);
+                                if ($(this).is("video")) {
+                                    this.play();
+                                }
+                         	}
+                        });
                     }
                 </script>
             </div>
