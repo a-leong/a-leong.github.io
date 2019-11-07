@@ -21,12 +21,22 @@
         </style>
     </head>
     <body>
-    <input type="button" id='changeButton' value="take me to the canyon" style="display: none; padding-top: 10px; padding-left: 10px"
+    <div style="width: 100%; text-align: center; padding-top: 20px">
+        <input type="button" id='toChapel' value="⛪️" style="display: none;"
             onclick="
-                document.getElementById('changeButton').style='display: none;';
+                document.getElementById('toChapel').style='display: none;';
+                document.getElementById('toCanyon').style='margin: auto;';
+                loadEnvironmentMap('data/textures/LancellottiChapel/');
+                animate();
+            " >
+        <input type="button" id='toCanyon' value="🏜" style="display: none;"
+            onclick="
+                document.getElementById('toCanyon').style='display: none;';
+                document.getElementById('toChapel').style='margin: auto;';
                 loadEnvironmentMap('data/textures/canyon/');
                 animate();
             " >
+    </div>
     <div id="container">
         <div id="controlBar" style="position:absolute; left:50%; top:50%; transform: translate(-50%, -50%);">
 
@@ -45,7 +55,7 @@
             <input type="button" id="meshInputButton" value="Render Interactive Teapot" 
                 onclick="
                 document.getElementById('meshInputFile').click();
-                document.getElementById('changeButton').style='';
+                document.getElementById('toCanyon').style='';
                 document.getElementById('controlBar').style = 'display: none;'
                 " >
             <script>"loadFile();"</script>
