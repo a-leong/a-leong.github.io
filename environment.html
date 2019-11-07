@@ -14,13 +14,19 @@
         <style>
             body {
                 font-family: Monospace;
-                background-color: #FDF7FF;
+                background-color: #FEFFFF;
                 margin: 0px;
                 overflow: hidden;
             }
         </style>
     </head>
     <body>
+    <input type="button" id='changeButton' value="take me to the canyon" style="display: none; padding-top: 10px; padding-left: 10px"
+            onclick="
+                document.getElementById('changeButton').style='display: none;';
+                loadEnvironmentMap('data/textures/canyon/');
+                animate();
+            " >
     <div id="container">
         <div id="controlBar" style="position:absolute; left:50%; top:50%; transform: translate(-50%, -50%);">
 
@@ -39,6 +45,7 @@
             <input type="button" id="meshInputButton" value="Render Interactive Teapot" 
                 onclick="
                 document.getElementById('meshInputFile').click();
+                document.getElementById('changeButton').style='';
                 document.getElementById('controlBar').style = 'display: none;'
                 " >
             <script>"loadFile();"</script>
@@ -121,7 +128,7 @@ void main() {
             animate();
             
             function init() {
-                loadEnvironmentMap('data/textures/canyon/');
+                loadEnvironmentMap('data/textures/LancellottiChapel/');
             
                 addLight(new THREE.Vector3(50, 50, 100), new THREE.Vector3(0.8, 0.8, 0.8));
                 addLight(new THREE.Vector3(-50, -50, -50), new THREE.Vector3(0.5, 0.5, 0.6));
