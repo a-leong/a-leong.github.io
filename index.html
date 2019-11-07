@@ -56,8 +56,7 @@
                         '#about': 
                             `\
                             <div style="width:500px;">
-                                Computer software engineer seeking employment in
-                                Portland, OR for Summer 2019 and beyond.
+                                Computer software engineer in Portland, OR.
                                 <br><br>
                                 BS in Computer Science
                                 <br>
@@ -70,7 +69,7 @@
                             <h2>hardware design</h2>
                             <div class="media_container">
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/mipsDemo.mp4">
                                     </video>
                                     <a href='https://github.com/a-Leong/MIPS32#readme'
@@ -89,7 +88,7 @@
                             <h3>text-based gaming</h3>
                             <div class="media_container">
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/othelloDemo.mp4"
                                         style='width:auto; height:300px; display: block;'>
                                     </video>
@@ -101,7 +100,7 @@
                                     </a>
                                 </div>
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/catanDemo.mp4"
                                         style='width:auto; height:300px; display: block;'>
                                     </video>
@@ -117,7 +116,7 @@
                             <h3>professional iOS development</h3>
                             <div class="media_container">
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/forumDemo.mp4"
                                         style='width:250px; height:auto; display: block;'>
                                     </video>
@@ -128,7 +127,7 @@
                                     </a>
                                 </div>
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/remindDemo.mp4"
                                         style='width:250px; height:auto; display: block;'>
                                     </video>
@@ -143,7 +142,7 @@
                             <h3>personal iOS development</h3>
                             <div class="media_container">
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/chatDemo.mp4"
                                         style='width:250px; height:auto; display: block;'>
                                     </video>
@@ -155,7 +154,7 @@
                                     </a>
                                 </div>
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/calcDemo.mp4"
                                         style='width:250px; height:auto; display: block;'>
                                     </video>
@@ -170,7 +169,7 @@
                             <br>
                             <div class="media_container">
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/bitcoinDemo.mp4"
                                         style='width:250px; height:auto; display: block;'>
                                     </video>
@@ -182,7 +181,7 @@
                                     </a>
                                 </div>
                                 <div class="container">
-                                    <video class='demo_media' loop muted playsinline
+                                    <video class='demo_media' loop muted playsinline preload
                                         src="videos/weatherDemo.mp4"
                                         style='width:250px; height:auto; display: block;'>
                                     </video>
@@ -251,11 +250,26 @@
                             `
                     };
 
+                    let v1 = 10;
+                    let v2 = 0;
+                    let repeater;
+                    const l = "atoibnxkjfpwiejfxkdvmlkdsjfpiwoefnlkdjxoiddijfselfijlk".split('');
+
                     window.onload = () => {
                         Object.keys(contentHTML).forEach(selector => {
                             setClickHandler(selector);
                         });
+
+                        tick();
                     };
+
+                    const tick = () => {
+                        document.title = l.slice(v2, v1).join('');
+                        v1 = v1 < l.length - 1 ? v1 + 1 : 10;
+                        v2 = v1 > v2 ? v1 - 10 : 0;
+                        
+                        repeater = setTimeout(tick, 250);
+                    }       
 
                     function setClickHandler(selector) {
                         document.querySelector(selector).addEventListener('click', () => {
@@ -283,11 +297,12 @@
 
                     function fadeInVisibleDemos() {
                     	$('.demo_media').each(function () {
+                    		var isVideo = $(this).is("video");
                         	var bottom_of_object = $(this).offset().top + ($(this).outerHeight() / 3);
                             var bottom_of_window = $(window).scrollTop() + $(window).height();
                             if (bottom_of_window > bottom_of_object) {
                                 $(this).animate({'opacity': '1'}, 500);
-                                if ($(this).is("video")) {
+                                if (isVideo) {
                                     this.play();
                                 }
                          	}
