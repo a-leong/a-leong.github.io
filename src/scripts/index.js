@@ -42,12 +42,14 @@ const parseText = (text) => {
 }
 
 const toggleChilrden = (event) => {
-    const parent = event.target.parentElement;
-    console.log(parent);
-    if (parent.getElementsByClassName("line")[1].style.display !== "none") {
-        hideChildren(parent);
+    const target = event.target;
+    console.log(target);
+
+    if (target.className === "block") { return; }
+    if (target.parentElement.getElementsByClassName("line")[1].style.display !== "none") {
+        hideChildren(target.parentElement);
     } else {
-        showChildren(parent);
+        showChildren(target.parentElement);
     }
 }
 
