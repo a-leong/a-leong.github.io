@@ -1,0 +1,68 @@
+============================    Alexander Leong    ============================
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                          email me: adl88@cornell.edu                          
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    -> Computer science graduate, 2 years of software engineering experience   
+    -> Lead mobile developer for the Health Tech Research Group, ORI           
+
+================================== EDUCATION ==================================
+
+CORNELL UNIVERSITY, COLLEGE OF ENGINEERING                   Graduated May 2018
+Bachelor of Science in Computer Science                        GPA: 3.13 / 4.00
+    -> Meinig Family National Scholar (Cornell Leadership Program)             
+    -> Key coursework:                                                         
+           Artificial Intelligence, Operating Systems, Computer Systems        
+           Programming, Robotics, Functional Programming, Learning from Big    
+           Messy Data, Industrial Data Science and Systems Analysis            
+
+=========================== PROFESSIONAL EXPERIENCE ===========================
+
+INFLUENTS INNOVATIONS                                       (remote) Eugene, OR
+Full Stack Engineer                                           08/2019 – Present
+    -> Designing and implementing an SPA with Elm v0.19, Firebase              
+    -> Responsible for feature implementation, testing, and deployment for     
+       several web apps used for virtual behavioral interventions              
+
+OREGON RESEACH INSTITUTE                                    (remote) Eugene, OR
+Lead Mobile Engineer                                          11/2018 – Present
+    -> Responsible for feature implementation, testing, and deployment for a   
+       suite of 10 educational mobile applications in iOS and Android          
+    -> Notable iOS contributions: custom video compressor, local and remote    
+       notification system, dynamic media picker with preview, multiuser forum 
+    -> Notable Android contributions: Realm database integration, multimedia   
+       syncing for offline use, user video uploads, Spanish language support,  
+       user messaging system                                                   
+
+JACK ELLIOT, CORNELL UNIVERSITY                                      Ithaca, NY
+Design and Environmental Analysis Researcher                (02/2015 – 05/2017)
+    -> Helped design and create a modular disaster relief shelter              
+    -> Used wood shop to make models for design and testing                    
+
+============================== SELECTED PROJECTS ==============================
+
+HERTZSPRUNG-RUSSELL PLOT GENERATOR                          (03/2018 – 03/2018)
+    -> Developed an astronomical data mining algorithm to parse FITS files     
+       of photometric data and create Hertzsprung-Russell diagrams             
+
+AUTONOMOUS VIRTUAL KUKA youBot                              (10/2017 – 12/2017)
+    -> Developed command notes for mobile robot with an arm and gripper to     
+       navigate to and collect randomly positioned blocks: inverse             
+       kinematics for a 6-jointed arm and obstacle avoidance                   
+
+OTHELLO BOARD GAME                                          (02/2017 – 05/2017)
+    -> Developed the game engine, text-based interface, and AI                 
+    -> Won online competition against 10 competing algorithms with an          
+       alpha-beta pruning minimax algorithm                                    
+
+MIPS 32-Bit CPU                                             (02/2016 – 04/2016)
+    -> Designed and implemented a five-stage pipelined MIPS CPU in Logisim     
+    -> Developed with forwarding and to handle data and control hazards        
+
+=================================== SKILLS ====================================
+
+Languages:  Elm, Swift, Java, SQL, Python, OCaml                               
+Additional: React, VCS (Github, Jira, Notion), Xcode, Android Studio, Firebase,
+            among others                                                       
+
+===============================================================================

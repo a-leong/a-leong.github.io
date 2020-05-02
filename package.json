@@ -1,0 +1,26 @@
+{
+  "name": "a-leong.github.io",
+  "version": "1.0.0",
+  "description": "Alex Leong's Personal Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html",
+    "build": "rm -rf dist/ && parcel build src/index.html && npm run gen-resume",
+    "gen-resume": "python src/scripts/gen-resume.py -i src/resume.txt -o dist/r.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-Leong/a-leong.github.io.git"
+  },
+  "author": "Alex Leong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-Leong/a-leong.github.io/issues"
+  },
+  "homepage": "https://github.com/a-Leong/a-leong.github.io#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}

@@ -1,0 +1,30 @@
+body, html {
+  background-color:#FEFFFF;
+  -webkit-tap-highlight-color:rgba(255,255,255,0);
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Chrome and Opera */
+  cursor: default;
+}
+
+.block {
+  transition: ease-out 0.5s;
+}
+
+.block:hover {
+  background-color: #FDF8DF;
+}
+
+.line {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 17px;
+  color: #333;
+}
+
+.line:hover {
+  color: #00E;
+  background-color: #FDE6B2;
+}
