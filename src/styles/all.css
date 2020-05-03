@@ -1,30 +1,106 @@
-body, html {
-  background-color:#FEFFFF;
-  -webkit-tap-highlight-color:rgba(255,255,255,0);
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Chrome and Opera */
-  cursor: default;
+/* MOBILE */
+@media only screen and (max-width: 1000px) {
+    body, html {
+      background-color:#FEFFFF;
+      -webkit-tap-highlight-color:rgba(255,255,255,0);
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Chrome and Opera */
+    }
+
+    .block {
+      width: 675px;
+      margin: 0 auto;
+      padding: 10px;
+      box-shadow: 0px 0px 5px #CCC;
+    }
+
+    .line {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      color: #333;
+    }
 }
 
-.block {
-  transition: ease-out 0.5s;
-}
 
-.block:hover {
-  background-color: #FDF8DF;
-}
+/* DESKTOP */
+@media only screen and (min-width: 1001px) {
+    body, html {
+      background-color:#FEFFFF;
+      -webkit-tap-highlight-color:rgba(255,255,255,0);
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Chrome and Opera */
+      cursor: default;
+    }
 
-.line {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 17px;
-  color: #333;
-}
+    .block {
+      margin: 0 auto;
+      padding: 10px;
+      transition: 0.3s;
+    }
 
-.line:hover {
-  color: #00E;
-  background-color: #FDE6B2;
+    .block:hover .emphasis {
+      font-style: italic;
+    }
+
+    .block:hover .email {
+      color: #0921EA;
+    }
+
+    .block:hover {
+      background-color: #FDF8DF;
+    }
+
+    .lineContainer:hover {
+      background-color: #FDE6B2;
+    }
+
+    .line {
+      width: 860px;
+      margin: 0 auto;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .header:hover {
+      color: #0921EA;
+      cursor: pointer;
+    }
+
+    .email {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .copied::after {
+      position: absolute;
+      top: 0;
+      left: 65%;
+      content: "copied to clipboard";
+      opacity: 0;
+      will-change: opacity, transform;
+      animation: showcopied 2s ease;
+    }
+
+    @keyframes showcopied {
+      0% {
+        opacity: 0;
+        transform: translateX(-90%);
+      }
+      60% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
 }

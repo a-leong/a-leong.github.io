@@ -38,11 +38,8 @@ def convertLine(line):
       # add break to empty lines
       return "<br>\n"
    else:
-      # replace ' ' with physical space
-      if (len(line) != 80):
-         return line.replace(" ", "&nbsp;")
-      else: 
-         return line.replace(" ", "&nbsp;")
+      # replace ' ' with physical space 
+      return line.replace(" ", "&nbsp;")
 
 if __name__ == "__main__":
    main(sys.argv[1:])
