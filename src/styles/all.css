@@ -41,29 +41,66 @@
     }
 
     .block {
-      width: 950px;
       margin: 0 auto;
       padding: 10px;
+      transition: 0.3s;
     }
 
     .block:hover .emphasis {
       font-style: italic;
     }
 
+    .block:hover .email {
+      color: #0921EA;
+    }
+
     .block:hover {
       background-color: #FDF8DF;
-      /*box-shadow: 0px 0px 5px #CCC;*/
+    }
+
+    .lineContainer:hover {
+      background-color: #FDE6B2;
     }
 
     .line {
-      width: 950px;
+      width: 860px;
+      margin: 0 auto;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 20px;
+      font-size: 18px;
       color: #333;
     }
 
-    .line:hover {
+    .header:hover {
       color: #0921EA;
-      background-color: #F5BA2F;
+      cursor: pointer;
+    }
+
+    .email {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .copied::after {
+      position: absolute;
+      top: 0;
+      left: 65%;
+      content: "copied to clipboard";
+      opacity: 0;
+      will-change: opacity, transform;
+      animation: showcopied 2s ease;
+    }
+
+    @keyframes showcopied {
+      0% {
+        opacity: 0;
+        transform: translateX(-90%);
+      }
+      60% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
     }
 }

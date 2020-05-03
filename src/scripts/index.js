@@ -16,21 +16,36 @@ const parseText = (text) => {
         let delim = text.substring(i+1,i+2);
         if (delim==="=") {
             blockDiv = document.createElement("div");
-            blockDiv.className = "block";
+            blockDiv.classList.add("block");
             blockDiv.onclick = toggleChilrden;
             document.getElementById("resume").appendChild(blockDiv);
         }
-        const divClass = j-i===5 ? "br" : "line";
         const lineDiv = document.createElement("div");
         if (delim==="*") {
-            lineDiv.className = divClass + " emphasis";
+            lineDiv.classList.add("emphasis");
             lineDiv.innerHTML = "&nbsp;"+text.substring(i+2,j);
+        } else if (delim==="=") {
+            lineDiv.classList.add("header");
+            lineDiv.innerHTML = text.substring(i,j);
+        } else if (delim==="@"){
+            lineDiv.classList.add("email");
+            lineDiv.innerHTML = "&nbsp;"+text.substring(i+2,j);
+            lineDiv.onclick = copyEmail;
         } else {
-            lineDiv.className = divClass;
             lineDiv.innerHTML = text.substring(i,j);
         }
-        
-        blockDiv.appendChild(lineDiv);
+        if (j-i===5) {
+            //br
+            lineDiv.classList.add("br");
+            blockDiv.appendChild(lineDiv)
+        } else {
+            //line
+            lineDiv.className += " line";
+            const lineContainerDiv = document.createElement("div");
+            lineContainerDiv.classList.add("lineContainer");
+            lineContainerDiv.appendChild(lineDiv);
+            blockDiv.appendChild(lineContainerDiv);
+        }
         i = j;
         j = text.indexOf("\n", j+1);
         
@@ -41,16 +56,58 @@ const parseText = (text) => {
     }
 }
 
+const copyEmail = (event) => {
+    const target = event.target;
+    if (target.className === "email line") {
+        copyTextToClipboard("adl88@cornell.edu");
+        target.classList.add('copied');
+        setTimeout(() => { target.classList.remove('copied'); }, 1500);
+    }
+}
+
 const toggleChilrden = (event) => {
     const target = event.target;
-    console.log(target);
-
-    if (target.className === "block") { return; }
-    if (target.parentElement.getElementsByClassName("line")[1].style.display !== "none") {
-        hideChildren(target.parentElement);
+    if (target.className !== "header line") { return; }
+    if (target.parentElement.parentElement.getElementsByClassName("line")[1].style.display !== "none") {
+        hideChildren(target.parentElement.parentElement);
     } else {
-        showChildren(target.parentElement);
+        showChildren(target.parentElement.parentElement);
     }
+}
+
+function fallbackCopyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  
+  // Avoid scrolling to bottom
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Fallback: Copying text command was ' + msg);
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+
+  document.body.removeChild(textArea);
+}
+function copyTextToClipboard(text) {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function() {
+    console.log('Async: Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });
 }
 
 const hideChildren = (parent) => {
