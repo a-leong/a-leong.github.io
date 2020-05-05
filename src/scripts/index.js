@@ -1,14 +1,22 @@
 window.addEventListener("load",_=>{
+    loadBanner();
     loadResume();
 })
 
-const loadResume = () => {
-    fetch("/r.txt")
-        .then(response => response.text())
-        .then((data) => parseText(data))
+const loadBanner = () => {
+    document.getElementById("banner").innerHTML = banner;
 }
 
-const parseText = (text) => {
+const loadResume = () => {
+    fetch("/r_lg.txt")
+        .then(response => response.text())
+        .then((data) => parseText(data, "lg"))
+    fetch("/r_sm.txt")
+        .then(response => response.text())
+        .then((data) => parseText(data, "sm"))
+}
+
+const parseText = (text, size) => {
     let i = 0;
     let j = text.indexOf("\n");
     let blockDiv;
@@ -18,7 +26,7 @@ const parseText = (text) => {
             blockDiv = document.createElement("div");
             blockDiv.classList.add("block");
             blockDiv.onclick = toggleChilrden;
-            document.getElementById("resume").appendChild(blockDiv);
+            document.getElementById("resume_" + size).appendChild(blockDiv);
         }
         const lineDiv = document.createElement("div");
         if (delim==="*") {
@@ -47,12 +55,7 @@ const parseText = (text) => {
             blockDiv.appendChild(lineContainerDiv);
         }
         i = j;
-        j = text.indexOf("\n", j+1);
-        
-    }
-    const infoBlocks = document.getElementsByClassName("block");
-    for (var k = infoBlocks.length - 1; k > 0; k--) {
-        hideChildren(infoBlocks[k]);
+        j = text.indexOf("\n", j+1);   
     }
 }
 
@@ -61,7 +64,7 @@ const copyEmail = (event) => {
     if (target.className === "email line") {
         copyTextToClipboard("adl88@cornell.edu");
         target.classList.add('copied');
-        setTimeout(() => { target.classList.remove('copied'); }, 1500);
+        setTimeout(() => { target.classList.remove('copied'); }, 1000);
     }
 }
 
@@ -75,39 +78,39 @@ const toggleChilrden = (event) => {
     }
 }
 
-function fallbackCopyTextToClipboard(text) {
-  var textArea = document.createElement("textarea");
-  textArea.value = text;
-  
-  // Avoid scrolling to bottom
-  textArea.style.top = "0";
-  textArea.style.left = "0";
-  textArea.style.position = "fixed";
+const fallbackCopyTextToClipboard = (text) => {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
 
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
 
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Fallback: Copying text command was ' + msg);
-  } catch (err) {
-    console.error('Fallback: Oops, unable to copy', err);
-  }
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
 
-  document.body.removeChild(textArea);
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+    }
+
+    document.body.removeChild(textArea);
 }
-function copyTextToClipboard(text) {
-  if (!navigator.clipboard) {
-    fallbackCopyTextToClipboard(text);
-    return;
-  }
-  navigator.clipboard.writeText(text).then(function() {
-    console.log('Async: Copying to clipboard was successful!');
-  }, function(err) {
-    console.error('Async: Could not copy text: ', err);
-  });
+const copyTextToClipboard = (text) => {
+    if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+        console.log('Async: Copying to clipboard was successful!');
+    }, (err) => {
+        console.error('Async: Could not copy text: ', err);
+    });
 }
 
 const hideChildren = (parent) => {
@@ -131,3 +134,10 @@ const showChildren = (parent) => {
         breaks[i].style.display = "";
     }
 }
+
+const banner = `<span style=";color:#aaa;background-color:#fff">&#160;&#160;.&#160;&#160;&#160;&#160;.&#160;&#160;&#160;.&#160;.&#160;&#160;&#160;.&#160;&#160;&#160;&#160;.&#160;&#160;&#160;&#160;&#160;.&#160;&#160;..&#160;&#160;&#160;..&#160;.&#160;&#160;.&#160;&#160;&#160;.&#160;&#160;&#160;&#160;.&#160;&#160;.&#160;&#160;.&#160;&#160;&#160;.&#160;&#160;&#160;&#160;..&#160;.&#160;&#160;&#160;&#160;&#160;&#160;.&#160;&#160;&#160;</span><br />
+<span style=";color:#aaa;background-color:#fff">&#160;.;</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#f55;background-color:#aaa">X</span><span style=";color:#aaa;background-color:#f55">8</span><span style=";color:#f55;background-color:#aaa">X</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#aaa;background-color:#fff">8;&#160;&#160;..</span><span style=";color:#aaa;background-color:#ff5">;</span><span style=";color:#aaa;background-color:#fff">:</span><span style=";color:#aaa;background-color:#ff5">:</span><span style=";color:#aaa;background-color:#fff">..&#160;.&#160;t8</span><span style=";color:#fff;background-color:#aaa">%%X</span><span style=";color:#aaa;background-color:#fff">8:&#160;&#160;&#160;8</span><span style=";color:#5ff;background-color:#aaa">X</span><span style=";color:#aaa;background-color:#55f">8</span><span style=";color:#0aa;background-color:#aaa">8</span><span style=";color:#5ff;background-color:#aaa">@</span><span style=";color:#fff;background-color:#aaa">.</span><span style=";color:#aaa;background-color:#fff">:&#160;&#160;&#160;.</span><span style=";color:#aaa;background-color:#f5f">t</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#f5f">&#160;</span><span style=";color:#aaa;background-color:#fff">;..&#160;.;</span><span style=";color:#fff;background-color:#aaa">X</span><span style=";color:#ff5;background-color:#aaa">8</span><span style=";color:#a50;background-color:#aaa">8</span><span style=";color:#ff5;background-color:#aaa">8</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#aaa;background-color:#fff">S..&#160;@</span><span style=";color:#555;background-color:#aaa">8</span><span style=";color:#a0a;background-color:#555">&#160;&#160;&#160;</span><span style=";color:#555;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#fff">X&#160;.&#160;;@888X.&#160;&#160;</span><br />
+<span style=";color:#aaa;background-color:#fff">&#160;%</span><span style=";color:#a0a;background-color:#f55">&#160;</span><span style=";color:#a00;background-color:#f55">&#160;</span><span style=";color:#f5f;background-color:#f55">X</span><span style=";color:#ff5;background-color:#f55">S</span><span style=";color:#f5f;background-color:#f55">%</span><span style=";color:#a00;background-color:#f55">&#160;&#160;</span><span style=";color:#aaa;background-color:#fff">8%:</span><span style=";color:#a50;background-color:#ff5">&#160;</span><span style=";color:#aaa;background-color:#ff5">t;;;;;</span><span style=";color:#aaa;background-color:#fff">.&#160;8</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#f5f;background-color:#aaa">%</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#aaa;background-color:#fff">t&#160;</span><span style=";color:#0aa;background-color:#aaa">S</span><span style=";color:#00a;background-color:#55f">&#160;&#160;</span><span style=";color:#0aa;background-color:#55f">&#160;&#160;&#160;&#160;</span><span style=";color:#aaa;background-color:#5ff">8</span><span style=";color:#aaa;background-color:#fff">:.</span><span style=";color:#aaa;background-color:#f5f">;</span><span style=";color:#a0a;background-color:#f5f">:</span><span style=";color:#aaa;background-color:#f5f">%:%</span><span style=";color:#a0a;background-color:#f5f">&#160;.</span><span style=";color:#f5f;background-color:#aaa">X</span><span style=";color:#aaa;background-color:#fff">&#160;%</span><span style=";color:#ff5;background-color:#a50">.</span><span style=";color:#f55;background-color:#a50">88</span><span style=";color:#ff5;background-color:#a50">:</span><span style=";color:#a50;background-color:#f55">t</span><span style=";color:#ff5;background-color:#a50">%</span><span style=";color:#f55;background-color:#a50">8</span><span style=";color:#fff;background-color:#aaa">8</span><span style=";color:#aaa;background-color:#fff">&#160;</span><span style=";color:#fff;background-color:#aaa">%</span><span style=";color:#a00;background-color:#000">:</span><span style=";color:#0a0;background-color:#000">.</span><span style=";color:#00a;background-color:#000">:</span><span style=";color:#a00;background-color:#000">.</span><span style=";color:#00a;background-color:#000">:</span><span style=";color:#a00;background-color:#000">.</span><span style=";color:#00a;background-color:#000">;</span><span style=";color:#fff;background-color:#aaa">8</span><span style=";color:#aaa;background-color:#fff">&#160;@</span><span style=";color:#fff;background-color:#aaa">%</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#fff">8</span><span style=";color:#aaa;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#fff">8</span><span style=";color:#aaa;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#fff">8S&#160;</span><br />
+<span style=";color:#aaa;background-color:#fff">&#160;%</span><span style=";color:#a0a;background-color:#f55">&#160;</span><span style=";color:#aaa;background-color:#f55">8</span><span style=";color:#a50;background-color:#f55">&#160;</span><span style=";color:#aaa;background-color:#f55">8</span><span style=";color:#a00;background-color:#f55">&#160;</span><span style=";color:#aaa;background-color:#f55">8</span><span style=";color:#a00;background-color:#f55">&#160;</span><span style=";color:#f55;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#fff">.:</span><span style=";color:#a50;background-color:#ff5">&#160;</span><span style=";color:#aaa;background-color:#ff5">%:;</span><span style=";color:#fff;background-color:#ff5">8</span><span style=";color:#aaa;background-color:#ff5">t;</span><span style=";color:#aaa;background-color:#fff">:&#160;</span><span style=";color:#fff;background-color:#aaa">%&#160;&#160;</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#f5f;background-color:#aaa">%</span><span style=";color:#fff;background-color:#aaa">&#160;&#160;</span><span style=";color:#aaa;background-color:#fff">X&#160;</span><span style=";color:#55f;background-color:#aaa">8</span><span style=";color:#0aa;background-color:#55f">&#160;</span><span style=";color:#5ff;background-color:#0aa">;</span><span style=";color:#5ff;background-color:#55f">8</span><span style=";color:#0aa;background-color:#55f">.</span><span style=";color:#0aa;background-color:#5ff">:</span><span style=";color:#00a;background-color:#55f">..</span><span style=";color:#aaa;background-color:#fff">&#160;&#160;</span><span style=";color:#aaa;background-color:#f5f">tS%SSX</span><span style=";color:#a0a;background-color:#f5f">&#160;</span><span style=";color:#aaa;background-color:#f5f">%</span><span style=";color:#aaa;background-color:#fff">&#160;%</span><span style=";color:#f55;background-color:#a50">8</span><span style=";color:#a50;background-color:#ff5">S</span><span style=";color:#aaa;background-color:#a50">8</span><span style=";color:#f55;background-color:#a50">8</span><span style=";color:#aaa;background-color:#ff5">@</span><span style=";color:#555;background-color:#a50">8</span><span style=";color:#ff5;background-color:#a50">.</span><span style=";color:#ff5;background-color:#aaa">X</span><span style=";color:#aaa;background-color:#fff">.</span><span style=";color:#555;background-color:#aaa">;</span><span style=";color:#a00;background-color:#000">::</span><span style=";color:#00a;background-color:#000">:</span><span style=";color:#a00;background-color:#000">.</span><span style=";color:#0a0;background-color:#000">.</span><span style=";color:#a00;background-color:#000">;</span><span style=";color:#0a0;background-color:#000">:</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#aaa;background-color:#fff">&#160;8</span><span style=";color:#aaa;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#fff">8</span><span style=";color:#aaa;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#fff">8</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#fff">8</span><span style=";color:#aaa;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#fff">&#160;&#160;</span><br />
+<span style=";color:#aaa;background-color:#fff">&#160;&#160;8</span><span style=";color:#aaa;background-color:#f55">8</span><span style=";color:#f5f;background-color:#f55">S</span><span style=";color:#a50;background-color:#f55">&#160;</span><span style=";color:#aaa;background-color:#f55">8</span><span style=";color:#f5f;background-color:#f55">S</span><span style=";color:#fff;background-color:#aaa">&#160;</span><span style=";color:#aaa;background-color:#fff">@&#160;.;</span><span style=";color:#aaa;background-color:#ff5">;</span><span style=";color:#fff;background-color:#ff5">8</span><span style=";color:#aaa;background-color:#ff5">tt</span><span style=";color:#fff;background-color:#ff5">8</span><span style=";color:#aaa;background-color:#fff">:&#160;.t8</span><span style=";color:#f5f;background-color:#aaa">S</span><span style=";color:#ff5;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#ff5">8</span><span style=";color:#fff;background-color:#f5f">8</span><span style=";color:#aaa;background-color:#fff">8;&#160;;</span><span style=";color:#5ff;background-color:#aaa">8</span><span style=";color:#00a;background-color:#55f">&#160;</span><span style=";color:#0aa;background-color:#55f">.</span><span style=";color:#55f;background-color:#0aa">8</span><span style=";color:#a0a;background-color:#55f">:</span><span style=";color:#0aa;background-color:#aaa">X</span><span style=";color:#aaa;background-color:#fff">8.&#160;&#160;</span><span style=";color:#aaa;background-color:#f5f">%%S%SX</span><span style=";color:#aaa;background-color:#fff">&#160;&#160;&#160;8</span><span style=";color:#f55;background-color:#a50">8</span><span style=";color:#aaa;background-color:#a50">@</span><span style=";color:#ff5;background-color:#a50">.</span><span style=";color:#a50;background-color:#f55">;</span><span style=";color:#aaa;background-color:#ff5">@</span><span style=";color:#ff5;background-color:#aaa">S</span><span style=";color:#aaa;background-color:#fff">%.;</span><span style=";color:#555;background-color:#aaa">8</span><span style=";color:#555;background-color:#000">@</span><span style=";color:#a00;background-color:#000">.</span><span style=";color:#00a;background-color:#000">.:</span><span style=";color:#555;background-color:#000">8</span><span style=";color:#555;background-color:#aaa">@</span><span style=";color:#aaa;background-color:#fff">..t88</span><span style=";color:#f5f;background-color:#fff">8</span><span style=";color:#55f;background-color:#5ff">8</span><span style=";color:#f5f;background-color:#fff">8</span><span style=";color:#5ff;background-color:#fff">8</span><span style=";color:#aaa;background-color:#fff">8;&#160;</span><br />
+<span style=";color:#aaa;background-color:#fff">&#160;&#160;.&#160;&#160;&#160;.&#160;.&#160;.&#160;&#160;&#160;..&#160;.&#160;.&#160;;t;%;;.:.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.&#160;.&#160;&#160;&#160;...&#160;&#160;&#160;&#160;&#160;&#160;.&#160;&#160;:.&#160;&#160;..&#160;t@t&#160;.&#160;&#160;.%Xt&#160;t.::&#160;</span><br />`;
