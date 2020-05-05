@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build && parcel src/index.html",
-    "build": "rm -rf dist/ && npm run mangle-js && parcel build src/index.html && npm run gen-resume",
+    "build": "rm -rf dist/ && npm run mangle-js && parcel build src/index.html && npm run gen-resumes",
     "mangle-js": "javascript-obfuscator src/scripts/index.js --output src/scripts/indeex.js",
-    "gen-resume": "python src/scripts/gen-resume.py -i src/resume.txt -o dist/r.txt"
+    "gen-resumes": "python src/scripts/gen-resume.py -i src/resume_lg.txt -o dist/r_lg.txt && python src/scripts/gen-resume.py -i src/resume_sm.txt -o dist/r_sm.txt"
   },
   "repository": {
     "type": "git",

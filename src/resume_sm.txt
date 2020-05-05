@@ -1,0 +1,42 @@
+==========  ALEXANDER LEONG  ==========
+- - - - - - - - - - - - - - - - - - - -
+@          adl88@cornell.edu           
+- - - - - - - - - - - - - - - - - - - -
+
+  -> Computer science graduate, 2 years
+     of software engineering experience
+* -> Lead mobile developer for the     
+     Health Tech Research Group, Oregon
+*    Research Institute                
+
+=============  EDUCATION  =============
+
+CORNELL UNIVERSITY   Graduated May 2018
+Bachelor of Science in Computer Science
+*   -> Meinig Family National Scholar  
+
+======  PROFESSIONAL EXPERIENCE  ======
+
+INFLUENTS INNOVATIONS        Eugene, OR
+Full Stack Engineer   08/2019 – Present
+* -> Design and implementation of an   
+     SPA with Elm v0.19, Firebase      
+
+OREGON RESEACH INSTITUTE     Eugene, OR
+Lead Mobile Engineer  11/2018 – Present
+  -> Responsible for feature           
+     implementation, testing, and      
+     deployment for a suite of 10      
+     educational mobile applications in
+     iOS and Android                   
+
+CORNELL UNIVERSITY           Ithaca, NY
+Design Researcher     02/2015 – 05/2017
+
+==============  SKILLS  ===============
+
+LANGUAGES                              
+* -> Elm, Swift, Java, Python, OCaml   
+ADDITIONAL                             
+  -> React, Github, Jira, Notion,      
+       Xcode, Android Studio, Firebase  
