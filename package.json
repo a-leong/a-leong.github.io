@@ -25,6 +25,7 @@
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
-    "javascript-obfuscator": "^0.28.5"
+    "javascript-obfuscator": "^0.28.5",
+    "node-forge": ">=0.10.0"
   }
 }
