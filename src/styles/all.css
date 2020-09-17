@@ -1,175 +1,176 @@
 /* MOBILE */
 @media only screen and (max-width: 1000px) {
-    body, html {
-      background-color:#FEFFFF;
-      -webkit-tap-highlight-color:rgba(255,255,255,0);
-      -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-         -khtml-user-select: none; /* Konqueror HTML */
-           -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Chrome and Opera */
-      overflow-x: hidden;
-      cursor: default;
-    }
+  body,
+  html {
+    background-color: #feffff;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Chrome and Opera */
+    overflow-x: hidden;
+    cursor: default;
+  }
 
-    body {
-      position: relative
-    }
+  body {
+    position: relative;
+  }
 
-    #banner {
-      font-size: 1.9vw;
-      margin: 0 auto;
-      font-family: monospace;
-      font-weight: bold;
-    }
+  #banner {
+    font-size: 1.9vw;
+    margin: 0 auto;
+    font-family: monospace;
+    font-weight: bold;
+  }
 
-    #resume_sm {
-      display: block;
-    }
+  #resume_sm {
+    display: block;
+  }
 
-    #resume_lg {
-      display: none;
-    }
+  #resume_lg {
+    display: none;
+  }
 
-    .block {
-      transition: 1s;
-      width: 100%;
-      margin: 0 auto;
-      padding: 10px;
-    }
+  .block {
+    transition: 1s;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
 
-    .line {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 3.8vw;
-      color: #333;
-    }
+  .line {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 3.8vw;
+    color: #333;
+  }
 
-    .email {
-      color: #0921EA;
-      position: relative;
-      cursor: pointer;
-    }
+  .email {
+    color: #0921ea;
+    position: relative;
+    cursor: pointer;
+  }
 
-    .copied::after {
-      position: absolute;
-      top: 0;
-      left: 75%;
-      content: "copied";
+  .copied::after {
+    position: absolute;
+    top: 0;
+    left: 75%;
+    content: "copied";
+    opacity: 0;
+    will-change: opacity;
+    animation: showcopied 1s ease-out;
+  }
+
+  @keyframes showcopied {
+    0% {
       opacity: 0;
-      will-change: opacity;
-      animation: showcopied 1s ease-out;
     }
-
-    @keyframes showcopied {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
+    50% {
+      opacity: 1;
     }
+    100% {
+      opacity: 0;
+    }
+  }
 }
-
 
 /* DESKTOP */
 @media only screen and (min-width: 1001px) {
-    body, html {
-      background-color:#FEFFFF;
-      -webkit-tap-highlight-color:rgba(255,255,255,0);
-      -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-         -khtml-user-select: none; /* Konqueror HTML */
-           -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Chrome and Opera */
-      overflow-x: hidden;
-      cursor: default;
-    }
+  body,
+  html {
+    background-color: #feffff;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Chrome and Opera */
+    overflow-x: hidden;
+    cursor: default;
+  }
 
-    body {
-      position: relative
-    }
+  body {
+    position: relative;
+  }
 
-    #banner {
-      font-size: 18px;
-      width: 890px;
-      margin: 0 auto;
-      font-family: monospace;
-      font-weight: bold;
-    }
+  #banner {
+    font-size: 18px;
+    width: 890px;
+    margin: 0 auto;
+    font-family: monospace;
+    font-weight: bold;
+  }
 
-    #resume_sm {
-      display: none;
-    }
+  #resume_sm {
+    display: none;
+  }
 
-    #resume_lg {
-      display: block;
-    }
+  #resume_lg {
+    display: block;
+  }
 
-    .block {
-      margin: 0 auto;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      transition: 0.3s;
-    }
+  .block {
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: 0.3s;
+  }
 
-    .block:hover .emphasis {
-      font-style: italic;
-    }
+  .block:hover .emphasis {
+    font-style: italic;
+  }
 
-    .block:hover .email {
-      color: #0921EA;
-    }
+  .block:hover .email {
+    color: #0921ea;
+  }
 
-    .block:hover {
-      background-color: #FDF8DF;
-    }
+  .block:hover {
+    background-color: #fdf8df;
+  }
 
-    .lineContainer:hover {
-      background-color: #FDE6B2;
-    }
+  .lineContainer:hover {
+    background-color: #fde6b2;
+  }
 
-    .line {
-      width: 860px;
-      margin: 0 auto;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 18px;
-      color: #333;
-    }
+  .line {
+    width: 860px;
+    margin: 0 auto;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
+    color: #333;
+  }
 
-    .header:hover {
-      color: #0921EA;
-      cursor: pointer;
-    }
+  .header:hover {
+    color: #0921ea;
+    cursor: pointer;
+  }
 
-    .email {
-      position: relative;
-      cursor: pointer;
-    }
+  .email {
+    position: relative;
+    cursor: pointer;
+  }
 
-    .copied::after {
-      position: absolute;
-      top: 0;
-      left: 65%;
-      content: "copied";
+  .copied::after {
+    position: absolute;
+    top: 0;
+    left: 65%;
+    content: "copied";
+    opacity: 0;
+    will-change: opacity;
+    animation: showcopied 1s ease-out;
+  }
+
+  @keyframes showcopied {
+    0% {
       opacity: 0;
-      will-change: opacity;
-      animation: showcopied 1s ease-out;
     }
-
-    @keyframes showcopied {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
+    50% {
+      opacity: 1;
     }
+    100% {
+      opacity: 0;
+    }
+  }
 }
