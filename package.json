@@ -25,6 +25,6 @@
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
-    "javascript-obfuscator": "^0.28.0"
+    "javascript-obfuscator": "^0.28.5"
   }
 }
