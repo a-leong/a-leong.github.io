@@ -63,7 +63,7 @@ MIPS 32-Bit CPU                                             (02/2016 – 04/20
 =================================== SKILLS ====================================
 
 LANGUAGES
-*   -> Elm, Swift, Java, SQL, Python, OCaml                               
+*   -> Elm, Swift, Java, Javascript, Typescript, SQL, Python, OCaml            
 ADDITIONAL
-    -> React, VCS (Github, Jira, Notion), Xcode, Android Studio, Firebase,
-       among others                                                       
+    -> Vue, React, VCS (Github, Jira, Notion), Xcode, Android Studio, Firebase,
+       among others                                                            

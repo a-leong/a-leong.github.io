@@ -36,7 +36,8 @@ Design Researcher     02/2015 – 05/2017
 ==============  SKILLS  ===============
 
 LANGUAGES                              
-* -> Elm, Swift, Java, Python, OCaml   
+* -> Elm, Swift, Java, Javascript,     
+     Typescript, Python, OCaml         
 ADDITIONAL                             
-  -> React, Github, Jira, Notion,      
-       Xcode, Android Studio, Firebase  
+  -> Vue, React, Github, Jira, Notion, 
+     Xcode, Android Studio, Firebase    
